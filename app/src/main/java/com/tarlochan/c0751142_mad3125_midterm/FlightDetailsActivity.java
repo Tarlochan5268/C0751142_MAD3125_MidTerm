@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.tarlochan.c0751142_mad3125_midterm.FlightRecyclye.FlightRow;
 import com.tarlochan.c0751142_mad3125_midterm.SpaceXFlight.SpaceXFlight;
 
 import butterknife.BindView;
@@ -73,11 +74,14 @@ public class FlightDetailsActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         int position = getIntent().getIntExtra("position", 0);
+        Bundle data = getIntent().getExtras();
+        FlightRow flightRow = (FlightRow) data.getParcelable("flightrow");
+        //Log.d("Flight Row --------->",flightRow.toString());
         flight = MainActivity.staticSpaceXFlightList.get(position);
         txtName.setText(flight.getMission_name());
         txtYear.setText(flight.getLaunch_year());
         String photoUrl = flight.getLinks().getMission_patch_small();
-        Log.d("patch Link ------->>>", flight.getLinks().getMission_patch_small());
+        //Log.d("patch Link ------->>>", flight.getLinks().getMission_patch_small());
         Glide.with(imageView)  //2
                 .load(photoUrl) //3
                 .centerCrop() //4

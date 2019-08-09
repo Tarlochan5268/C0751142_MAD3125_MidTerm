@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="129dp"
-        android:layout_height="139dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="287dp"
-        android:layout_marginEnd="146dp"
-        android:layout_marginBottom="305dp"
+        android:layout_width="273dp"
+        android:layout_height="182dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="225dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bikloo" />
+        app:srcCompat="@drawable/spacexx" />
 </android.support.constraint.ConstraintLayout>

@@ -1,10 +1,22 @@
 package com.tarlochan.c0751142_mad3125_midterm.FlightRecyclye;
 
-public class FlightRow
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class FlightRow implements Parcelable
 {
     String flightimage;
     String flightName;
     String flightYear;
+    int position = 0;
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
 
     public FlightRow() {
     }
@@ -14,6 +26,24 @@ public class FlightRow
         this.flightName = flightName;
         this.flightYear = flightYear;
     }
+
+    protected FlightRow(Parcel in) {
+        flightimage = in.readString();
+        flightName = in.readString();
+        flightYear = in.readString();
+    }
+
+    public static final Creator<FlightRow> CREATOR = new Creator<FlightRow>() {
+        @Override
+        public FlightRow createFromParcel(Parcel in) {
+            return new FlightRow(in);
+        }
+
+        @Override
+        public FlightRow[] newArray(int size) {
+            return new FlightRow[size];
+        }
+    };
 
     public String getFlightImage() {
         return flightimage;
@@ -45,5 +75,17 @@ public class FlightRow
                 ", flightName='" + flightName + '\'' +
                 ", flightYear='" + flightYear + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.flightimage);
+            dest.writeString(this.flightName);
+            dest.writeString(this.flightYear);
     }
 }

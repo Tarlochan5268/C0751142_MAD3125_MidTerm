@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements FlightAdapter.Fli
         //flightRowList.get(position);
         Intent intent = new Intent(this,FlightDetailsActivity.class);
         intent.putExtra("position",position);
+        FlightRow flightRow = flightRowList.get(position);
+        flightRow.setPosition(position);
+        intent.putExtra("flightrow",flightRow);
         startActivity(intent);
     }
 }
