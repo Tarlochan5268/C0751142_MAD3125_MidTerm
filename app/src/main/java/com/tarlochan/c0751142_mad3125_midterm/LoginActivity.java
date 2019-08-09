@@ -177,8 +177,12 @@ public class LoginActivity extends AppCompatActivity {
         mDBUser.insert(user1);
         User user2 = new User(2,"test@test.com","test");
         mDBUser.insert(user2);
-        User user3 = new User(3,"t","t");
+        User user3 = new User(3,"tar@tar.com","tar");
         mDBUser.insert(user3);
+        User user4 = new User(4,"abc@abc.com","abc");
+        mDBUser.insert(user4);
+        User user5 = new User(5,"xyz@xyz.com","xyz");
+        mDBUser.insert(user5);
     }
 
     private void convertListToMap()
