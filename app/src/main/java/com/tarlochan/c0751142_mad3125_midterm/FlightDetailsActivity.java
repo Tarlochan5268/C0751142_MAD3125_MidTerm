@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class FlightDetailsActivity extends AppCompatActivity {
-
+    SpaceXFlight flight;
     @BindView(R.id.imgWikipedia)
     ImageView imgWikipedia;
     @BindView(R.id.imgArticle)
@@ -55,21 +55,25 @@ public class FlightDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flight_details);
+
         ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(FlightDetailsActivity.this,ArticleActivity.class);
+                intent.putExtra("link", flight.getLinks().getArticle_link());
+                startActivity(intent);
+                finish();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         int position = getIntent().getIntExtra("position", 0);
-        final SpaceXFlight flight = MainActivity.staticSpaceXFlightList.get(position);
+        flight = MainActivity.staticSpaceXFlightList.get(position);
         txtName.setText(flight.getMission_name());
         txtYear.setText(flight.getLaunch_year());
         String photoUrl = flight.getLinks().getMission_patch_small();
@@ -100,7 +104,26 @@ public class FlightDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FlightDetailsActivity.this,ArticleActivity.class);
-                intent.putExtra("link",flight.getLinks().getArticle_link());
+                intent.putExtra("link", flight.getLinks().getArticle_link());
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        imgWikipedia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FlightDetailsActivity.this,ArticleActivity.class);
+                intent.putExtra("link", flight.getLinks().getWikipedia());
+                startActivity(intent);
+                finish();
+            }
+        });
+        imgYoutube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FlightDetailsActivity.this,ArticleActivity.class);
+                intent.putExtra("link", flight.getLinks().getVideo_link());
                 startActivity(intent);
                 finish();
             }
