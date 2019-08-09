@@ -1,6 +1,7 @@
 package com.tarlochan.c0751142_mad3125_midterm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
@@ -104,7 +105,9 @@ public class LoginActivity extends AppCompatActivity {
                                 {
                                     saveRememeberMeEmpty();
                                 }
-
+                                String action;
+                                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                                startActivity(intent);
                             }
                             else
                             {
