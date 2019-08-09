@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">C0751142_MAD3125_MidTerm</string>
     <string name="title_activity_flight_details">FlightDetailsActivity</string>
+    <string name="title_activity_article">ArticleActivity</string>
 </resources>

@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
+import com.tarlochan.c0751142_mad3125_midterm.SpaceXFlight.SpaceXFlight;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +58,9 @@ public class MainActivity extends AppCompatActivity implements FlightAdapter.Fli
     @Override
     public void onFlightClick(int position) {
         Log.d("ON FLIGHT CLICK -->>",flightRowList.get(position).toString()+" position : "+position);
-        flightRowList.get(position);
+        //flightRowList.get(position);
         Intent intent = new Intent(this,FlightDetailsActivity.class);
+        intent.putExtra("position",position);
         startActivity(intent);
     }
 }

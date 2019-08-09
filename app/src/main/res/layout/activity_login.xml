@@ -97,5 +97,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         tools:checked="true" />
 
-
 </android.support.constraint.ConstraintLayout>
