@@ -1,4 +1,4 @@
-package com.tarlochan.c0751142_mad3125_midterm;
+package com.tarlochan.c0751142_mad3125_midterm.FlightRecyclye;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.tarlochan.c0751142_mad3125_midterm.MainActivity;
+import com.tarlochan.c0751142_mad3125_midterm.R;
 
 import java.util.List;
 

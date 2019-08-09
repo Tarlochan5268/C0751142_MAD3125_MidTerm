@@ -1,4 +1,4 @@
-package com.tarlochan.c0751142_mad3125_midterm;
+package com.tarlochan.c0751142_mad3125_midterm.DataBase;
 
 public class User
 {

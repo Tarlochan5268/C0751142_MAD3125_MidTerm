@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.tarlochan.c0751142_mad3125_midterm.DataBase.DataStore;
+import com.tarlochan.c0751142_mad3125_midterm.FlightRecyclye.FlightAdapter;
+import com.tarlochan.c0751142_mad3125_midterm.FlightRecyclye.FlightRow;
 import com.tarlochan.c0751142_mad3125_midterm.SpaceXFlight.SpaceXFlight;
 
 import java.util.ArrayList;

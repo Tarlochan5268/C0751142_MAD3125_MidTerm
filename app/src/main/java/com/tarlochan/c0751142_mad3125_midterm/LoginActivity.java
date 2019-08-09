@@ -10,8 +10,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.tarlochan.c0751142_mad3125_midterm.DataBase.DBUser;
+import com.tarlochan.c0751142_mad3125_midterm.DataBase.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
