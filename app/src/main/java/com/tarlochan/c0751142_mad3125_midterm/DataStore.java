@@ -17,6 +17,10 @@ public class DataStore
     Context context;
     public ArrayList<SpaceXFlight> mSpaceXFlightList ;
 
+    public ArrayList<SpaceXFlight> getmSpaceXFlightList() {
+        return mSpaceXFlightList;
+    }
+
     public DataStore(Context context)
     {
         this.context = context;
@@ -25,12 +29,12 @@ public class DataStore
     public String loadJSONFromAsset() {
         String json;
         try {
-            InputStream is = context.getAssets().open("User.json");
+            InputStream is = context.getAssets().open("Data.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             int count = is.read(buffer);
             is.close();
-            Log.d("-- COUNT --", String.format("%d Bytes",count));
+            //Log.d("-- COUNT --", String.format("%d Bytes",count));
             json = new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -39,7 +43,7 @@ public class DataStore
         return json;
     }
 
-    private void processJSON()
+    public void processJSON()
     {
         String jsonString = this.loadJSONFromAsset();
         if (jsonString != null)
@@ -50,9 +54,9 @@ public class DataStore
 
                 for (int i = 0; i < mJSONArray.length(); i++) {
 
-                    SpaceXFlight mSpaceXFlight = this.getFlightObjectFromJSON(mJSONArray.getJSONObject(i));
+                    SpaceXFlight mSpaceXFlight = getFlightObjectFromJSON(mJSONArray.getJSONObject(i));
                     mSpaceXFlightList.add(mSpaceXFlight);
-                    Log.d("-- JSON -- ", mSpaceXFlight.toString());
+                    //Log.d("-- JSON -- ", mSpaceXFlight.toString());
 
                 }
             }
@@ -63,7 +67,7 @@ public class DataStore
         }
     }
 
-    private SpaceXFlight getFlightObjectFromJSON(JSONObject userJsonObject) throws JSONException
+    public SpaceXFlight getFlightObjectFromJSON(JSONObject userJsonObject) throws JSONException
     {
         String flight_number = userJsonObject.getString("flight_number");
         String mission_name = userJsonObject.getString("mission_name");
