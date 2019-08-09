@@ -1,5 +1,6 @@
 package com.tarlochan.c0751142_mad3125_midterm;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,7 +14,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements FlightAdapter.FlightClickListener
 {
     private RecyclerView recyclerView;
     private FlightAdapter mAdapter;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity
         recyclerView = findViewById(R.id.recycleView);
 
 
-        mAdapter = new FlightAdapter(this,flightRowList);
+        mAdapter = new FlightAdapter(this,flightRowList,this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -52,5 +53,13 @@ public class MainActivity extends AppCompatActivity
             flightRowList.add(flightRow);
         }
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onFlightClick(int position) {
+        Log.d("ON FLIGHT CLICK -->>",flightRowList.get(position).toString()+" position : "+position);
+        flightRowList.get(position);
+        Intent intent = new Intent(this,FlightDetailsActivity.class);
+        startActivity(intent);
     }
 }

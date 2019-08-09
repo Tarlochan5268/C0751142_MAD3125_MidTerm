@@ -19,15 +19,18 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.MyViewHold
     public List<FlightRow> flightRowsList;
     ImageView flightImage;
     TextView flightName,flightYear;
+    private FlightClickListener mflightClickListener;
+
 
     private static final String TAG = "FlightAdapter";
 
     AppCompatActivity activity;
 
-    public FlightAdapter(AppCompatActivity activity_main, List<FlightRow> flightRowsList)
+    public FlightAdapter(AppCompatActivity activity_main, List<FlightRow> flightRowsList,FlightClickListener flightClickListener)
     {
         this.flightRowsList = flightRowsList;
         this.activity = activity_main;
+        this.mflightClickListener=flightClickListener;
         Log.e(TAG, "FlightAdapter: "+flightRowsList.size() );
 
     }
@@ -38,7 +41,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.MyViewHold
         View itemView = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_flight_list, viewGroup, false);
 
-        return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView,mflightClickListener);
     }
 
     @Override
@@ -64,17 +67,31 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightAdapter.MyViewHold
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         ImageView flightImage;
         TextView flightName,flightYear;
+        FlightClickListener flightClickListener;
 
-        public MyViewHolder(View view)
+        public MyViewHolder(View itemView,FlightClickListener flightClickListener)
         {
-            super(view);
-            flightImage =  view.findViewById(R.id.imageView);
-            flightName =  view.findViewById(R.id.txtFlightName);
-            flightYear =  view.findViewById(R.id.txtFlightYear);
+            super(itemView);
+            flightImage =  itemView.findViewById(R.id.imageView);
+            flightName =  itemView.findViewById(R.id.txtFlightName);
+            flightYear =  itemView.findViewById(R.id.txtFlightYear);
+
+            this.flightClickListener=flightClickListener;
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            flightClickListener.onFlightClick(getAdapterPosition());
+        }
+    }
+
+    public interface FlightClickListener
+    {
+        void onFlightClick(int position);
     }
 }
