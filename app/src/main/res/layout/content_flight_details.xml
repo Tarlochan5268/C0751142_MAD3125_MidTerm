@@ -1,56 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:padding="25dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".FlightDetailsActivity"
-    android:orientation="vertical"
     tools:showIn="@layout/activity_flight_details">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/topConstraint"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="536dp">
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
+        tools:layout_editor_absoluteX="-58dp"
+        tools:layout_editor_absoluteY="247dp">
+
 
         <TextView
-            android:id="@+id/txtFlightName"
-            android:layout_width="199dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="106dp"
-            android:layout_marginTop="52dp"
-            android:layout_marginEnd="106dp"
-            android:layout_marginBottom="8dp"
-            android:text="FalconSat"
+            android:id="@+id/txtSiteId"
+            android:layout_width="205dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="27dp"
+            android:text="No"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtSiteName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/txtRocketType2" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="111dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="2dp"
+            android:text="Site ID : "
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtSiteName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/txtRocketType2"
+            android:layout_width="205dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="27dp"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/txtRocketName" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="111dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="2dp"
+            android:text="Rocket Name : "
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView14"
+            app:layout_constraintEnd_toStartOf="@+id/txtRocketName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <TextView
+            android:id="@+id/txtRocketName"
+            android:layout_width="205dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="27dp"
+            android:text="No"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtRocketType2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView18"
+            app:layout_constraintTop_toBottomOf="@+id/txtRocketId" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="111dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="2dp"
+            android:text="Rocket ID : "
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtRocketName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/txtRocketId"
+            android:layout_width="205dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="27dp"
+            android:text="No"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/txtUpcoming" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="111dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="2dp"
+            android:text="Future Flight : "
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtRocketName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDetails" />
+
+        <TextView
+            android:id="@+id/txtUpcoming"
+            android:layout_width="205dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="27dp"
+            android:text="No"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/txtDetails" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="111dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="2dp"
+            android:text="Rocket Type : "
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtRocketType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <TextView
+            android:id="@+id/txtRocketType"
+            android:layout_width="205dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="1dp"
+            android:text="No"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtSiteId"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/txtRocketName" />
+
+        <ImageView
+            android:id="@+id/imgWikipedia"
+            android:layout_width="44dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="102dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="323dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgArticle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:srcCompat="@drawable/wikipedia" />
+
+        <ImageView
+            android:id="@+id/imgArticle"
+            android:layout_width="44dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="324dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgYoutube"
+            app:layout_constraintStart_toEndOf="@+id/imgWikipedia"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:srcCompat="@drawable/article" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="157dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="102dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="102dp"
+            android:layout_marginBottom="12dp"
+            android:text="FalconSet"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/txtFlightYear"
+            app:layout_constraintBottom_toTopOf="@+id/txtYear"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtFlightYear"
+            android:id="@+id/txtYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="185dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="185dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="165dp"
+            android:layout_marginBottom="7dp"
             android:text="2019"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
-            android:textSize="18sp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="77dp"
+            android:layout_marginEnd="77dp"
+            android:layout_marginBottom="9dp"
+            app:layout_constraintBottom_toTopOf="@+id/imgArticle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtYear"
+            app:srcCompat="@drawable/img_placeholder" />
+
+        <ImageView
+            android:id="@+id/imgYoutube"
+            android:layout_width="44dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="91dp"
+            android:layout_marginBottom="323dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgArticle"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:srcCompat="@drawable/youtube" />
+
+        <TextView
+            android:id="@+id/txtDetails"
+            android:layout_width="318dp"
+            android:layout_height="91dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="27dp"
+            android:text='Successful first stage burn and transition to second stage, maximum altitude 289 km, Premature engine shutdown at T+7 min 30 s, Failed to reach orbit, Failed to recover first stage",'
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgArticle" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="111dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="42dp"
+            android:text="Site Name : "
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/background_dark"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txtSiteName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+        <TextView
+            android:id="@+id/txtSiteName"
+            android:layout_width="205dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="41dp"
+            android:text="No"
+            android:textAlignment="textStart"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtFlightName" />
+            app:layout_constraintStart_toEndOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/txtSiteId" />
 
     </android.support.constraint.ConstraintLayout>
 
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
