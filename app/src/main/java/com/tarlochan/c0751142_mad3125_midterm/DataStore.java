@@ -1,7 +1,6 @@
 package com.tarlochan.c0751142_mad3125_midterm;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
