@@ -79,6 +79,7 @@ public class DataStore
         String launch_year = userJsonObject.getString("launch_year");
         String launch_window = userJsonObject.getString("launch_window");
         String details = userJsonObject.getString("details");
+        String flight_success = userJsonObject.getString("launch_success");
 
         //Read Rocket
         JSONObject rocket = new JSONObject(userJsonObject.getJSONObject("rocket").toString());
@@ -108,6 +109,7 @@ public class DataStore
         mSpaceXFlight.setLaunch_year(launch_year);
         mSpaceXFlight.setLaunch_window(launch_window);
         mSpaceXFlight.setDetails(details);
+        mSpaceXFlight.setFlight_success(flight_success);
 
         Rocket mRocket = new Rocket();
         mRocket.setRocket_id(rocket_id);

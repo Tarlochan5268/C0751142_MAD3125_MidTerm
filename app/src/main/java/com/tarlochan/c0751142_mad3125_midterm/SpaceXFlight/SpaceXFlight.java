@@ -27,6 +27,26 @@ public class SpaceXFlight
         this.links = links;
         this.details = details;
     }
+    public SpaceXFlight(String flight_number, String mission_name, String upcoming, String launch_year, String launch_window, Rocket rocket, LaunchSite launchSite, Links links, String details,String flight_success) {
+        this.flight_number = flight_number;
+        this.mission_name = mission_name;
+        this.upcoming = upcoming;
+        this.launch_year = launch_year;
+        this.launch_window = launch_window;
+        this.rocket = rocket;
+        this.launchSite = launchSite;
+        this.links = links;
+        this.details = details;
+        this.flight_success=flight_success;
+    }
+
+    public String getFlight_success() {
+        return flight_success;
+    }
+
+    public void setFlight_success(String flight_success) {
+        this.flight_success = flight_success;
+    }
 
     public String getFlight_number() {
         return flight_number;

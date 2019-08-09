@@ -1,10 +1,10 @@
 package com.tarlochan.c0751142_mad3125_midterm;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -46,8 +46,8 @@ public class FlightDetailsActivity extends AppCompatActivity {
     TextView txtRocketName;
     @BindView(R.id.txtUpcoming)
     TextView txtUpcoming;
-    @BindView(R.id.txtSiteId)
-    TextView txtSiteId;
+    @BindView(R.id.txtFlightSuccess)
+    TextView txtFlightSuccess;
     @BindView(R.id.txtSiteName)
     TextView txtSiteName;
 
@@ -89,15 +89,38 @@ public class FlightDetailsActivity extends AppCompatActivity {
         String upcoming = "";
         if (flight.getUpcoming().equals("false")) {
             upcoming = "No";
+            txtUpcoming.setTextColor(Color.RED);
 
-        } else {
+        } else if(flight.getUpcoming().equals("true")) {
             upcoming = "Yes";
+            txtUpcoming.setTextColor(Color.BLUE);
+        }
+        else
+        {
+            upcoming = "No";
+            txtUpcoming.setTextColor(Color.RED);
         }
         txtUpcoming.setText(upcoming);
         txtRocketId.setText(flight.getRocket().getRocket_id());
         txtRocketName.setText(flight.getRocket().getRocket_name());
         txtRocketType.setText(flight.getRocket().getRocket_type());
-        txtSiteId.setText(flight.getLaunchSite().getSite_id());
+        //txtSiteId.setText(flight.getLaunchSite().getSite_id());
+        String success = "";
+        if (flight.getFlight_success().equals("false")) {
+            success = "No";
+            txtFlightSuccess.setTextColor(Color.RED);
+
+        } else if(flight.getFlight_success().equals("true")) {
+            success = "Yes";
+            txtFlightSuccess.setTextColor(Color.BLUE);
+        }
+        else
+        {
+            success = "No";
+            txtFlightSuccess.setTextColor(Color.RED);
+        }
+
+        txtFlightSuccess.setText(success);
         txtSiteName.setText(flight.getLaunchSite().getSite_name());
 
         imgArticle.setOnClickListener(new View.OnClickListener() {
