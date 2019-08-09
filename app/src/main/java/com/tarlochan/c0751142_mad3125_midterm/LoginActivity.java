@@ -133,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-
+//Remember Me to save
     private void saveRememeberMe()
     {
         mSharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
@@ -142,6 +142,7 @@ public class LoginActivity extends AppCompatActivity {
         mEditor.putString("password",edtPassword.getText().toString());
         mEditor.commit();
     }
+    //Remember Me Empty code
     private void saveRememeberMeEmpty()
     {
         mSharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
@@ -150,6 +151,8 @@ public class LoginActivity extends AppCompatActivity {
         mEditor.putString("password","");
         mEditor.commit();
     }
+
+    // to get back remember me values
     private void getRememberMe()
     {
         mSharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
@@ -159,7 +162,7 @@ public class LoginActivity extends AppCompatActivity {
         edtEmail.setText(email);
         edtPassword.setText(password);
     }
-
+//To validate email
     public Boolean validateEmail(String email) {
 
         String regex = "^[a-z0-9A-Z\\.]*@[a-z0-9A-Z]*\\.[a-zA-Z]*$";
@@ -174,6 +177,8 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
     }
+
+    //load some static users into DB for first time
     public void loadUserIntoDB()
     {
         User user1 = new User(1,"admin@admin.com","admin");
@@ -187,7 +192,7 @@ public class LoginActivity extends AppCompatActivity {
         User user5 = new User(5,"xyz@xyz.com","xyz");
         mDBUser.insert(user5);
     }
-
+//Convert List of users into Map so that user email and password is easily checked by key value pair
     private void convertListToMap()
     {
         for(User u : mUsersArrayList)

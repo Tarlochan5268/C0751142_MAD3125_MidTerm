@@ -11,6 +11,7 @@ public class SpaceXFlight
     LaunchSite launchSite;
     Links links;
     String details;
+    String flight_success;
 
     public SpaceXFlight() {
     }
