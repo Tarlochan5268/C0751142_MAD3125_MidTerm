@@ -15,6 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ArticleActivity"
+            android:label="@string/title_activity_article"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tarlochan.c0751142_mad3125_midterm.MainActivity" />
+        </activity>
+        <activity
             android:name=".FlightDetailsActivity"
             android:label="@string/title_activity_flight_details"
             android:parentActivityName=".MainActivity"
@@ -31,7 +40,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
