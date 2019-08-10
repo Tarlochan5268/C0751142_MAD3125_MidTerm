@@ -1,10 +1,12 @@
 package com.tarlochan.c0751142_mad3125_midterm;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -98,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (usersMapList.containsValue(password))
                             {
                                 //password matches so User confirmed
-                                Toast.makeText(LoginActivity.this, "Correct Details Entered", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(LoginActivity.this, "Correct Details Entered", Toast.LENGTH_SHORT).show();
                                 if(switchRememberMe.isChecked() == true)
                                 {
                                     saveRememeberMe();
@@ -107,9 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                                 {
                                     saveRememeberMeEmpty();
                                 }
-                                String action;
-                                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-                                startActivity(intent);
+                                showAlertBox();
                             }
                             else
                             {
@@ -201,5 +201,41 @@ public class LoginActivity extends AppCompatActivity {
         {
             usersMapList.put(u.getEmail(),u.getPassword());
         }
+    }
+
+    private void showAlertBox()
+    {
+        //Step 1 create alert Builder
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Correct Details Entered");
+        //alertDialog.setIcon(R.drawable.ic_smile);
+        alertDialog.setMessage("Would You Like To Continue ? ");
+        alertDialog.setCancelable(false); // outside click will not hide the dialog box
+        //Step 2 Add Positive Button
+        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Toast.makeText(HomeActivity.this, "Clicked on Ok", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        //Add Negative Button
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Toast.makeText(HomeActivity.this, "Clicked on Cancel", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(LoginActivity.this,SplashActivity.class);
+                startActivity(intent);
+            }
+        });
+        //Add Neutral Button
+        alertDialog.setNeutralButton("Ignore", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Toast.makeText(HomeActivity.this, "Clicked on Ignore", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alertDialog.show();
     }
 }

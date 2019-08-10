@@ -7,7 +7,10 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.tarlochan.c0751142_mad3125_midterm.DataBase.DataStore;
 import com.tarlochan.c0751142_mad3125_midterm.FlightRecyclye.FlightAdapter;
@@ -47,6 +50,28 @@ public class MainActivity extends AppCompatActivity implements FlightAdapter.Fli
         prepareFlightListData();
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.mnu_LogOut:
+                //Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, SplashActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     private void prepareFlightListData()
     {
